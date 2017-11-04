@@ -1,0 +1,11 @@
+<h1> Vousmevoyez </h1>
+
+<h2>Venture Deals</h2>
+<h3>Extracted from: <a href="http://fortune.com/tag/term-sheet/">http://fortune.com/tag/term-sheet/</a></h3>
+
+<% @deals.each do |deal| %>
+
+<h3><a href="<%= deal.company_url %>"><%= deal.company  %></a></h3>
+<p><%= deal.detail  %></p>
+
+<% end %>
