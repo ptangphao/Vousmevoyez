@@ -15,9 +15,9 @@ namespace :vousmevoyez do
     venture_deals = article_dom.css('.listicle__item').select{|child|child.text.include?("VENTURE DEALS")}[0].css('p')
 
     keywords = ["San Francisco", "Calif"]
+    # Create a deal object and add it to the database if it includes a keyword
     venture_deals.each do |deal|
-      # if keywords.any?{|word| deal.include?(word)}
-      if deal.text.include?("San Francisco") || deal.text.include?("Calif")
+      if keywords.any?{|word| deal.text.include?(word)}
         d = Deal.new
         d.company = deal.css('strong').first.text[0..-2]
         d.company_url = deal.css('a').first.values.first 
@@ -25,7 +25,6 @@ namespace :vousmevoyez do
         d.save
       end
     end
-    # Create new deals based on filter
 
     puts "Database has been updated"
   end
