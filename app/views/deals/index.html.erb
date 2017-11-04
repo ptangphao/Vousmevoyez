@@ -7,13 +7,11 @@
 <hr>
 
 <% if !@deals.empty? %>
-<% @deals.each do |deal| %>
-
-<h3><a href="<%= deal.company_url %>"><%= deal.company  %></a></h3>
-<p><%= deal.detail  %></p>
-
-<% end %>
-
+  <% @deals.each do |deal| %>
+  <h3><a href="<%= deal.company_url %>"><%= deal.company  %></a></h3>
+  <p><%= deal.detail  %></p>
+  <br>
+  <% end %>
 <% else %>
-<h1>No Deals Present</h1>
+  <h1>No Deals Present</h1>
 <% end %>
