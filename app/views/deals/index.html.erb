@@ -1,0 +1,18 @@
+<h1> Vousmevoyez by Patrick Tangphao (<a href="http://www.github.com/ptangphao">Github</a>)</h1>
+<h2>Created: 11/4/2017</h2>
+
+<h2>Venture Deals</h2>
+<h3>Extracted from: <a href="http://fortune.com/tag/term-sheet/">http://fortune.com/tag/term-sheet/</a></h3>
+<h3>Last Updated: <%= @last_updated %></h3>
+
+<hr>
+
+<% if !@deals.empty? %>
+  <% @deals.each do |deal| %>
+  <h3><a href="<%= deal.company_url %>"><%= deal.company  %></a></h3>
+  <p><%= deal.detail  %></p>
+  <br>
+  <% end %>
+<% else %>
+  <h1>No Deals Present</h1>
+<% end %>
