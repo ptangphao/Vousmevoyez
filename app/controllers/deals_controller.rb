@@ -1,5 +1,5 @@
 class DealsController < ApplicationController
   def index
-    @deals = Deals.all
+    @deals = Deal.all
   end
 end
