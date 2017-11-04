@@ -14,7 +14,7 @@ namespace :vousmevoyez do
     article_dom = Nokogiri::HTML(open(next_url))
     venture_deals = article_dom.css('.listicle__item').select{|child|child.text.include?("VENTURE DEALS")}[0].css('p')
     venture_deals.each do |deal|
-      if deal.text.include?("San Francisco")
+      if deal.text.include?("San Francisco") || deal.text.include?("Calif")
         d = Deal.new
         d.company = deal.css('strong').first.text[0..-2]
         d.company_url = deal.css('a').first.values.first 
