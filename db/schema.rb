@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20171104083121) do
   create_table "deals", force: :cascade do |t|
     t.string   "company"
     t.string   "company_url"
+    t.string   "post_date"
     t.text     "detail"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

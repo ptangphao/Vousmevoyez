@@ -9,7 +9,7 @@
 
 <% if !@deals.empty? %>
   <% @deals.each do |deal| %>
-  <h3><a href="<%= deal.company_url %>"><%= deal.company  %></a></h3>
+  <h3><a href="<%= deal.company_url %>"><%= deal.company  %></a> - <%= deal.post_date %></h3>   
   <p><%= deal.detail  %></p>
   <br>
   <% end %>
