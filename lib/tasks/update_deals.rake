@@ -17,6 +17,7 @@ namespace :vousmevoyez do
       article_dom = Nokogiri::HTML(open(next_url))
       venture_deals = article_dom.css('.listicle__item').select{|child|child.text.include?("VENTURE DEALS")}[0].css('p')
 
+
       keywords = ["San Francisco", "Calif"]
       # Create a deal object and add it to the database if it includes a keyword
       venture_deals.each do |deal|
@@ -25,6 +26,7 @@ namespace :vousmevoyez do
           d.company = deal.css('strong').first.text[0..-2]
           d.company_url = deal.css('a').first.values.first 
           d.detail = deal.text[2..-1]
+          d.post_date = article_dom.css('.timestamp').text.strip 
           d.save
         end
       end
